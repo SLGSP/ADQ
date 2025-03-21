@@ -20,8 +20,8 @@ Official implementation of "[Adaptive Dataset Quantization](https://arxiv.org/ab
 Download the repo:
 
 ```bash
-git clone https://github.com/magic-research/Dataset_Quantization.git
-cd Dataset_Quantization
+git clone https://github.com/SLGSP/ADQ.git
+cd ADQ
 ```
 
 Set up the environment:
@@ -39,15 +39,15 @@ wget https://dl.fbaipublicfiles.com/mae/visualize/mae_visualize_vit_large_ganlos
 mv mae_visualize_vit_large_ganloss.pth ./pretrained
 ```
 
-## DQ for Image Classification
+## ADQ for Image Classification
 
 ### Overview
 
 Adaptive Dataset Quantization is conducted in the following steps:
 
 1. Dataset bin generation. Firstly we iteratively select non-overlapping dataset bins according to the submodular function.
-2. Importance Score. 
-3. Bin sampling. Then we uniformly sample a certain portion (the required data keep ratio) from each bin and form the final compact set. 
+2. Importance Score Calculation. Subsequently, we calculate the Representativeness Score and Diversity Score to obtain the Importance Score.
+3. Bin sampling. Then we adaptively sample a certain portion (the required data keep ratio) from each bin based on Importance Score and form the final compact set. 
 4. Pixel quantization and reconstruction. We employ a GradCAM module to select informative image patches. By only storing the informative patches, the required storage can be further reduced. An MAE model is adopted for image reconstruction. For simplicity, here we directly conduct the reconstruction for evaluating our full method. 
 
 ### Data Preparation
@@ -66,6 +66,14 @@ CUDA_VISIBLE_DEVICES=0 python -u quantize_sample.py \
     --num_exp 10 --workers 10 -se 0 --selection Submodular --model ResNet18 \
     -sp ../results/bin_cifar_010 \
     --batch 128 --submodular GraphCut --submodular_greedy NaiveGreedy --pretrained
+
+# Representativeness Score Calculation
+CUDA_VISIBLE_DEVICES=0 python texture_level.py
+
+# Diversity Score Calculation
+CUDA_VISIBLE_DEVICES=0 python diversity.py
+
+# Normalize and sum the representativeness scores and diversity scores to get the importance scores and entered them into the quantize_bin.py file.
 
 # Bin sampling (Change the fraction parameter to obtain different data keep ratio)
 CUDA_VISIBLE_DEVICES=0 python -u quantize_bin.py \
@@ -137,7 +145,7 @@ sh distributed_train.sh 8 \
     --batch-size 128 --amp --aug-splits 3 -aa rand-m9-mstd0.5-inc1 --resplit --split-bn --jsd --dist-bn reduce
 ```
 
-## DQ for Instruction Fine-tuning
+## ADQ for Instruction Fine-tuning
 
 Here we provide the code of DQ to compress the instruction fine-tunning datasets [alpaca](https://github.com/tatsu-lab/stanford_alpaca/tree/main), which consists of 52K instructions. To compress the dataset, we first extract the embeddings for each instruction with response by OpenAI Embedding API, and then use DQ to sample a fraction of dataset.
 
@@ -162,7 +170,7 @@ Then, you can merge the embeddings with the following command:
 python alpaca_embed.py --merge
 ```
 
-### DQ Sampling
+### ADQ Sampling
 
 To generate the sampled dataset, you can run the following command:
 
