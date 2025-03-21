@@ -2,11 +2,11 @@
 
 Official implementation of "[Adaptive Dataset Quantization](https://arxiv.org/abs/2412.16895)". 
 
-<p align="center"><img src="./figs/framework.png" align="center" width="650"></p>
+<p align="center"><img src="./figs/framework.jpg" align="center" width="650"></p>
 
 **Adaptive Dataset Quantization**
 
-[Muquan Li](https://scholar.google.com/citations?user=3l9YIcQAAAAJ&hl=en&oi=ao), [Dongyang Zhang<sup>+</sup>](https://scholar.google.com/citations?user=SsjcBbwAAAAJ&hl=en), [Qiang Dong], [Xiurui Xie](https://scholar.google.com/citations?user=iFUId4sAAAAJ&hl=en), [Ke Qin](https://scholar.google.com/citations?user=YevGUDgAAAAJ&hl=en). (<sup>+</sup>Corresponding Author)
+[Muquan Li](https://scholar.google.com/citations?user=3l9YIcQAAAAJ&hl=en&oi=ao), [Dongyang Zhang<sup>+</sup>](https://scholar.google.com/citations?user=SsjcBbwAAAAJ&hl=en), Qiang Dong, [Xiurui Xie](https://scholar.google.com/citations?user=iFUId4sAAAAJ&hl=en), [Ke Qin](https://scholar.google.com/citations?user=YevGUDgAAAAJ&hl=en). (<sup>+</sup>Corresponding Author)
 
 ## Highlight :sparkles:​
 
@@ -43,13 +43,12 @@ mv mae_visualize_vit_large_ganloss.pth ./pretrained
 
 ### Overview
 
-![pipeline-classification](./figs/pipeline-classification.png)
+Adaptive Dataset Quantization is conducted in the following steps:
 
-Dataset Quantization is conducted in the following steps:
-
-1. Dataset bin generation. Firstly we iteratively select non-overlapping dataset bins according to the submodular function. 
-2. Bin sampling. Then we uniformly sample a certain portion (the required data keep ratio) from each bin and form the final compact set. 
-3. Pixel quantization and reconstruction. We employ a GradCAM module to select informative image patches. By only storing the informative patches, the required storage can be further reduced. An MAE model is adopted for image reconstruction. For simplicity, here we directly conduct the reconstruction for evaluating our full method. 
+1. Dataset bin generation. Firstly we iteratively select non-overlapping dataset bins according to the submodular function.
+2. Importance Score. 
+3. Bin sampling. Then we uniformly sample a certain portion (the required data keep ratio) from each bin and form the final compact set. 
+4. Pixel quantization and reconstruction. We employ a GradCAM module to select informative image patches. By only storing the informative patches, the required storage can be further reduced. An MAE model is adopted for image reconstruction. For simplicity, here we directly conduct the reconstruction for evaluating our full method. 
 
 ### Data Preparation
 
@@ -205,14 +204,6 @@ torchrun --nproc_per_node=8 --master_port=<your_random_port> train.py \
 
 We use [instruct-eval](https://github.com/declare-lab/instruct-eval) repo to evaluate the finetuned model. Please follow the instructions in the repo to run the evaluation.
 
-## Acknowledgement
-
-This project is mainly developed based on the following repos:
-- [DeepCore](https://github.com/PatrickZH/DeepCore)
-- [pytorch-image-models](https://github.com/huggingface/pytorch-image-models)
-- [pytorch-cifar](https://github.com/kuangliu/pytorch-cifar)
-
-We would like to especially thank [**Zangwei Zheng**](https://zhengzangw.github.io) for his help on the implementation of DQ in language tasks and **Ge Yan** for his advice on the mathematical proof of the submodular part. 
 
 
 ## Citation
@@ -220,10 +211,10 @@ We would like to especially thank [**Zangwei Zheng**](https://zhengzangw.githu
 If you find this work helpful, please cite:
 
 ```
-@article{zhou2023dataset,
-  title={Dataset Quantization},
-  author={Zhou, Daquan and Wang, Kai and Gu, Jianyang and Peng, Xiangyu and Lian, Dongze and Zhang, Yifan and You, Yang and Feng, Jiashi},
-  journal={arXiv preprint arXiv:2308.10524},
-  year={2023}
+@article{li2024adaptive,
+  title={Adaptive Dataset Quantization},
+  author={Li, Muquan and Zhang, Dongyang and Dong, Qiang and Xie, Xiurui and Qin, Ke},
+  journal={arXiv preprint arXiv:2412.16895},
+  year={2024}
 }
 ```
