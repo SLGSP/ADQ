@@ -6,7 +6,7 @@ Official implementation of "[Adaptive Dataset Quantization](https://arxiv.org/ab
 
 **Adaptive Dataset Quantization**
 
-[Muquan Li](https://scholar.google.com/citations?user=DdCAbWwAAAAJ&hl=en), [Dongyang Zhang<sup>+</sup>](https://kaiwang960112.github.io/), [Qiang Dong](https://vimar-gu.github.io/), [Xiurui Xie](https://scholar.google.com/citations?user=KRUTk7sAAAAJ&hl=en), [Ke Qin](https://dongzelian.com/). (<sup>+</sup>Corresponding Author)
+[Muquan Li](https://scholar.google.com/citations?user=3l9YIcQAAAAJ&hl=en&oi=ao), [Dongyang Zhang<sup>+</sup>](https://scholar.google.com/citations?user=SsjcBbwAAAAJ&hl=en), [Qiang Dong], [Xiurui Xie](https://scholar.google.com/citations?user=iFUId4sAAAAJ&hl=en), [Ke Qin](https://scholar.google.com/citations?user=YevGUDgAAAAJ&hl=en). (<sup>+</sup>Corresponding Author)
 
 ## Highlight :sparkles:​
 
