@@ -1,0 +1,12 @@
+torch==1.13.1
+torchvision==0.14.1
+scipy
+datasketch
+openai
+numpy
+nltk
+scipy
+tqdm
+prefetch_generator
+torchcam
+timm
