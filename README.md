@@ -1,6 +1,6 @@
 # Adaptive Dataset Quantization
 
-Official implementation of "[Adaptive Dataset Quantization](https://arxiv.org/abs/2412.16895)". 
+"[Adaptive Dataset Quantization](https://arxiv.org/abs/2412.16895)"
 
 <p align="center"><img src="./figs/framework.jpg" align="center" width="650"></p>
 
