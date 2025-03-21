@@ -1,20 +1,16 @@
-# Dataset Quantization for both Vision and Language Tasks
+# Adaptive Dataset Quantization
 
-Official implementation of "[Dataset Quantization](https://arxiv.org/abs/2308.10524)". 
+Official implementation of "[Adaptive Dataset Quantization](https://arxiv.org/abs/2412.16895)". 
 
-<p align="center"><img src="./figs/effects.png" align="center" width="650"></p>
+<p align="center"><img src="./figs/framework.png" align="center" width="650"></p>
 
-**Dataset Quantization**
+**Adaptive Dataset Quantization**
 
-[Daquan Zhou*](https://scholar.google.com/citations?user=DdCAbWwAAAAJ&hl=en), [Kai Wang*](https://kaiwang960112.github.io/), [Jianyang Gu*](https://vimar-gu.github.io/), [Xiangyu Peng](https://scholar.google.com/citations?user=KRUTk7sAAAAJ&hl=en), [Dongze Lian](https://dongzelian.com/), [Yifan Zhang](https://sites.google.com/view/yifan-zhang), [Yang You<sup>+</sup>](https://www.comp.nus.edu.sg/~youy/), [Jiashi Feng<sup>+</sup>](https://sites.google.com/site/jshfeng/) (*Equal Contribution, <sup>+</sup>Corresponding Author)
+[Muquan Li](https://scholar.google.com/citations?user=DdCAbWwAAAAJ&hl=en), [Dongyang Zhang<sup>+</sup>](https://kaiwang960112.github.io/), [Qiang Dong](https://vimar-gu.github.io/), [Xiurui Xie](https://scholar.google.com/citations?user=KRUTk7sAAAAJ&hl=en), [Ke Qin](https://dongzelian.com/). (<sup>+</sup>Corresponding Author)
 
 ## Highlight :sparkles:​
 
-- DQ is accepted by **ICCV2023**!
-- DQ is able to generate condensed small datasets for training unseen network architectures with state-of-the-art compression ratios for lossless model training. 
-- We support both **vision** and **language** dataset compression:
-    - **Vision tasks**: with 60% data from ImageNet, the models can be trained with no performance drop including classification, semantic segmentation, and object detection.
-    - **Language tasks**: with 20% data from Alpaca’s instruction tuning data, the models can be trained with negligible performance on BBH, DROP, MMLU, and Human-Eval. 
+- ADQ is accepted by **AAAI2025**!
 
 ## TODO List
 - [ ] ImageNet selected indices
