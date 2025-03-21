@@ -1,10 +1,8 @@
 # Adaptive Dataset Quantization
 
-"[Adaptive Dataset Quantization](https://arxiv.org/abs/2412.16895)"
+[Adaptive Dataset Quantization](https://arxiv.org/abs/2412.16895)
 
 <p align="center"><img src="./figs/framework.jpg" align="center" width="650"></p>
-
-**Adaptive Dataset Quantization**
 
 [Muquan Li](https://scholar.google.com/citations?user=3l9YIcQAAAAJ&hl=en&oi=ao), [Dongyang Zhang<sup>+</sup>](https://scholar.google.com/citations?user=SsjcBbwAAAAJ&hl=en), Qiang Dong, [Xiurui Xie](https://scholar.google.com/citations?user=iFUId4sAAAAJ&hl=en), [Ke Qin](https://scholar.google.com/citations?user=YevGUDgAAAAJ&hl=en). (<sup>+</sup>Corresponding Author)
 
