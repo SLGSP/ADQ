@@ -145,7 +145,7 @@ sh distributed_train.sh 8 \
 
 ## ADQ for Instruction Fine-tuning
 
-Here we provide the code of DQ to compress the instruction fine-tunning datasets [alpaca](https://github.com/tatsu-lab/stanford_alpaca/tree/main), which consists of 52K instructions. To compress the dataset, we first extract the embeddings for each instruction with response by OpenAI Embedding API, and then use DQ to sample a fraction of dataset.
+Here we provide the code of ADQ to compress the instruction fine-tunning datasets [alpaca](https://github.com/tatsu-lab/stanford_alpaca/tree/main), which consists of 52K instructions. To compress the dataset, we first extract the embeddings for each instruction with response by OpenAI Embedding API, and then use ADQ to sample a fraction of dataset.
 
 ### Embedding Extraction
 
